@@ -16,6 +16,8 @@ CN = IMAR
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = imar.net.cn
-DNS.2 = imar.local
-DNS.3 = imar
+DNS.1 = imar.xin
+DNS.2 = imar.net.cn
+DNS.3 = imar.local
+DNS.4 = imar
+DNS.5 = mg.imar.xin
