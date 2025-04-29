@@ -1,8 +1,3 @@
 .DS_Store
-imar/imarCA.key
-imar/imarCA.pem
-imar/imarCA.srl
-imar/server.crt
-imar/server.csr
-imar/server.key
-imar/ServerChain.crt
+imar/gen/*
+

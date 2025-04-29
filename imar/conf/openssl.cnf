@@ -1,0 +1,22 @@
+[req]
+default_bits       = 2048
+prompt             = no
+default_md         = sha256
+req_extensions     = req_ext
+distinguished_name = dn
+
+[dn]
+C  = CN
+ST = SC
+L  = CD
+O  = MG
+OU = AVATAR
+CN = IMAR
+[req_ext]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = *.imar.xin
+DNS.2 = *.imar.net.cn
+DNS.3 = *.imar.local
+DNS.4 = imar

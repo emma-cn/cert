@@ -2,11 +2,26 @@
 
 # 设置颜色输出
 GREEN='\033[0;32m'
+RED='\033[0;31m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
+# 检查参数
+if [ $# -ne 1 ]; then
+    echo -e "${RED}用法: $0 <项目名称>${NC}"
+    echo -e "${RED}支持的项目: imar, hound${NC}"
+    exit 1
+fi
+
+PROJECT=$1
+if [ "$PROJECT" != "imar" ] && [ "$PROJECT" != "hound" ]; then
+    echo -e "${RED}错误: 不支持的项目 '$PROJECT'${NC}"
+    echo -e "${RED}支持的项目: imar, hound${NC}"
+    exit 1
+fi
+
 # 设置证书目录
-GEN_DIR="imar/gen"
+GEN_DIR="$PROJECT/gen"
 
 # 查看证书内容的函数
 view_cert() {
@@ -24,7 +39,7 @@ view_cert() {
 
 # 主菜单
 show_menu() {
-    echo -e "${GREEN}证书查看工具${NC}"
+    echo -e "${GREEN}证书查看工具 - $PROJECT${NC}"
     echo "1. 查看CA证书内容"
     echo "2. 查看服务器证书内容"
     echo "3. 查看证书链内容"
@@ -38,8 +53,8 @@ while true; do
     read choice
     case $choice in
         1)
-            if [ -f "$GEN_DIR/imarCA.pem" ]; then
-                view_cert "$GEN_DIR/imarCA.pem" "CA证书"
+            if [ -f "$GEN_DIR/${PROJECT}CA.pem" ]; then
+                view_cert "$GEN_DIR/${PROJECT}CA.pem" "CA证书"
             else
                 echo -e "${YELLOW}CA证书不存在${NC}"
             fi
